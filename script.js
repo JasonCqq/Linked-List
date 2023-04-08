@@ -17,6 +17,9 @@ class LinkedList {
 
   prepend(value) {
     let newNode = new NodeBox(value, this.head.nextNode);
+    // creates a new node with the reference to the head's next node
+    // then sets the head's nextNode to this new node
+    // this makes sure the new node has a reference to the previous next node of head
     this.head.nextNode = newNode;
   }
 
@@ -35,7 +38,18 @@ class LinkedList {
     }
     return currentNode.value;
   }
-  // at(index) {}
+
+  at(index) {
+    let currentNode = this.head;
+    let i = 0;
+    while (i < index) {
+      // We just traverse through the list "x" amount of times depending on index/
+      // while changing the currentNode variable
+      currentNode = currentNode.nextNode;
+      i++;
+    }
+    return currentNode.value;
+  }
   // pop() {}
   // contains(value) {}
   // find(value) {}
@@ -71,3 +85,4 @@ linkedList.append("8");
 // console.log(linkedList.head.nextNode.nextNode.value);
 // console.log(linkedList.head.nextNode.nextNode.nextNode.value);
 // console.log(linkedList.head.nextNode.nextNode.nextNode.nextNode.value);
+// console.log(linkedList.at(7));
