@@ -54,20 +54,29 @@ class LinkedList {
   // pop() {
 
   // }
-  contains(value) {
+  contains(value, find = null) {
     let currentNode = this.head;
     while (currentNode.nextNode) {
       currentNode = currentNode.nextNode;
       if (currentNode.value !== value) {
         continue;
       } else if (currentNode.value === value) {
-        return true;
+        // If find is called, it will return the currentNode instead of testing if linked list contains the value
+        // If find is not called, it will just test if list contains value and return true or false
+        if (find === null) {
+          return true;
+        } else {
+          return currentNode;
+        }
       }
     }
     return false;
   }
-  // find(value) {}
-  // toString() {}
+
+  find(value) {
+    //Utilizes the contains function that's already made, only difference is setting "find = true"
+    return this.contains(value, true);
+  }
 }
 
 class NodeBox {
@@ -101,3 +110,4 @@ linkedList.append("8");
 // console.log(linkedList.head.nextNode.nextNode.nextNode.nextNode.value);
 // console.log(linkedList.at(7));
 // console.log(linkedList.contains("0"));
+console.log(linkedList.find("1"));
