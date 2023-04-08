@@ -77,6 +77,16 @@ class LinkedList {
     //Utilizes the contains function that's already made, only difference is setting "find = true"
     return this.contains(value, true);
   }
+
+  toString() {
+    let results = "( head ) --> ";
+    let currentNode = this.head;
+    while (currentNode.nextNode) {
+      currentNode = currentNode.nextNode;
+      results += `( ${currentNode.value} ) --> `;
+    }
+    return (results += "null");
+  }
 }
 
 class NodeBox {
@@ -110,4 +120,5 @@ linkedList.append("8");
 // console.log(linkedList.head.nextNode.nextNode.nextNode.nextNode.value);
 // console.log(linkedList.at(7));
 // console.log(linkedList.contains("0"));
-console.log(linkedList.find("1"));
+// console.log(linkedList.find("1"));
+console.log(linkedList.toString());
