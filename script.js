@@ -15,9 +15,10 @@ class LinkedList {
     this.length++;
   }
 
-  // prepend(value) {
-  //   let newNode = new NodeBox(value);
-  // }
+  prepend(value) {
+    let newNode = new NodeBox(value, this.head.nextNode);
+    this.head.nextNode = newNode;
+  }
 
   size() {
     return this.length;
@@ -32,7 +33,7 @@ class LinkedList {
     while (currentNode.nextNode) {
       currentNode = currentNode.nextNode;
     }
-    return currentNode;
+    return currentNode.value;
   }
   // at(index) {}
   // pop() {}
@@ -50,6 +51,7 @@ class NodeBox {
 
 let headNode = new NodeBox("head");
 let linkedList = new LinkedList(headNode);
+linkedList.append("1");
 linkedList.append("2");
 linkedList.append("3");
 linkedList.append("4");
@@ -57,7 +59,15 @@ linkedList.append("5");
 linkedList.append("6");
 linkedList.append("7");
 linkedList.append("8");
-linkedList.append("9");
 // console.log(linkedList.head.nextNode.nextNode.nextNode);
-console.log(`Size: ${linkedList.size()}`);
-console.log(linkedList.showTail());
+// console.log(`Size: ${linkedList.size()}`);
+// console.log(`Tail: ${linkedList.showTail()}`);
+// console.log(linkedList.showHead());
+// console.log(linkedList.head.nextNode);
+// linkedList.prepend("1.25");
+// linkedList.prepend("1.5");
+// console.log(linkedList.head.value);
+// console.log(linkedList.head.nextNode.value);
+// console.log(linkedList.head.nextNode.nextNode.value);
+// console.log(linkedList.head.nextNode.nextNode.nextNode.value);
+// console.log(linkedList.head.nextNode.nextNode.nextNode.nextNode.value);
