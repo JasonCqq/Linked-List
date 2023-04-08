@@ -51,9 +51,16 @@ class LinkedList {
     return currentNode.value;
   }
 
-  // pop() {
+  pop() {
+    let currentNode = this.head;
+    let secondToLastNode;
+    while (currentNode.nextNode) {
+      secondToLastNode = currentNode;
+      currentNode = currentNode.nextNode;
+    }
+    secondToLastNode.nextNode = null;
+  }
 
-  // }
   contains(value, find = null) {
     let currentNode = this.head;
     while (currentNode.nextNode) {
@@ -106,6 +113,8 @@ linkedList.append("5");
 linkedList.append("6");
 linkedList.append("7");
 linkedList.append("8");
+
+// Test cases you can try as well.
 // console.log(linkedList.head.nextNode.nextNode.nextNode);
 // console.log(`Size: ${linkedList.size()}`);
 // console.log(`Tail: ${linkedList.showTail()}`);
@@ -121,4 +130,5 @@ linkedList.append("8");
 // console.log(linkedList.at(7));
 // console.log(linkedList.contains("0"));
 // console.log(linkedList.find("1"));
-console.log(linkedList.toString());
+// linkedList.pop();
+// console.log(linkedList.toString());
