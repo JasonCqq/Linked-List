@@ -50,8 +50,22 @@ class LinkedList {
     }
     return currentNode.value;
   }
-  // pop() {}
-  // contains(value) {}
+
+  // pop() {
+
+  // }
+  contains(value) {
+    let currentNode = this.head;
+    while (currentNode.nextNode) {
+      currentNode = currentNode.nextNode;
+      if (currentNode.value !== value) {
+        continue;
+      } else if (currentNode.value === value) {
+        return true;
+      }
+    }
+    return false;
+  }
   // find(value) {}
   // toString() {}
 }
@@ -86,3 +100,4 @@ linkedList.append("8");
 // console.log(linkedList.head.nextNode.nextNode.nextNode.value);
 // console.log(linkedList.head.nextNode.nextNode.nextNode.nextNode.value);
 // console.log(linkedList.at(7));
+// console.log(linkedList.contains("0"));
